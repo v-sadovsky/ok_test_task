@@ -1,0 +1,84 @@
+-- MySQL dump 10.13  Distrib 8.0.31, for Linux (x86_64)
+--
+-- Host: localhost    Database: test_task
+-- ------------------------------------------------------
+-- Server version	8.0.31
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `products`
+--
+
+DROP TABLE IF EXISTS `products`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `products` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `store_id` int NOT NULL,
+  `name` varchar(70) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `price` decimal(7,2) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `store_id` (`store_id`),
+  CONSTRAINT `products_ibfk_1` FOREIGN KEY (`store_id`) REFERENCES `stores` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `products`
+--
+
+LOCK TABLES `products` WRITE;
+/*!40000 ALTER TABLE `products` DISABLE KEYS */;
+INSERT INTO `products` VALUES (4,5,'Ноутбук Huawei MateBook','<H1>Модель D 15 AMD BoM-WFQ9 53013HST</H1><p>15.6\" 1920 x 1080 IPS, 60 Гц, несенсорный, AMD Ryzen 5 5500U 2100 МГц, 16 ГБ DDR4, SSD 512 ГБ, видеокарта встроенная, Windows 11, цвет крышки серебристый</p><div>Объём оперативной памяти: 16Gb, Конфигурация накопителя: SSD 512Gb</div>',2657.62),(5,5,'Ноутбук Lenovo IdeaPad','<H1>Модель 3 15ABA7 82RN00C5</H1><p>15.6\" 1920 x 1080 IPS, 60 Гц, несенсорный, AMD Ryzen 5 5625U 2300 МГц, 8 ГБ DDR4, SSD 512 ГБ, видеокарта встроенная, без ОС, цвет крышки серый</p><div>Объём оперативной памяти: 8Gb, Операционная система: без ОС</div>',2099.00),(8,5,'Монитор Samsung','<H1>Модель S33 S24A336NHI</H1><p>24\", 16:9, 1920x1080, VA, 60 Гц, интерфейсы HDMI+D-Sub (VGA)</p><div>Соотношение сторон: 16:9, плотность пикселей: 92ppi</div>',520.00),(9,6,'Игровой монитор Samsung Odyssey','<H1>Модель G5 C27G54TQW</H1><p>27\", 16:9, 2560x1440, VA, изогнутый (1000R), 144 Гц, AMD FreeSync Premium, интерфейсы HDMI+DisplayPort</p><div>Соотношение сторон: 16:9, плотность пикселей: 108ppi</div>',1069.00),(10,6,'Ноутбук Acer Aspire','<H1>Модель 3 A315-43 NX.K7CER.7</H1><p>15.6\" 1920 x 1080 IPS, 60 Гц, несенсорный, AMD Ryzen 5 5500U 2100 МГц, 16 ГБ DDR4, SSD 512 ГБ, видеокарта встроенная, без ОС, цвет крышки черный</p><div>Технология экрана: IPS, Объем оперативной памяти: 16Gb</div>',1990.00),(11,10,'Клавиатура Genesis','<H1>Модель Thor 660</H1><p>игровая для ПК, механическая, Gateron Red, ход линейный/без клика, пластик, интерфейс подключения - USB/Bluetooth, подсветка, цвет черный</p><div>Цвет: черный, раскладка: нет кириллицы</div>',209.65),(12,10,'Ноутбук Apple Macbook Pro','<H1>Модель M1 Pro 2021 MKGR3</H1><p>14.2\" 3024 x 1964 IPS, 120 Гц, несенсорный, Apple M1 Pro (8 ядер), 16 ГБ, SSD 512 ГБ, видеокарта встроенная, Mac OS, цвет крышки серебристый</p><div>Объём оперативной памяти: 16Gb, Конфигурация накопителя: SSD512Gb</div>',7852.88),(13,10,'Монитор LG','<H1>Модель 24MK600M-B</H1><p>23.8\", 16:9, 1920x1080, IPS, 75 Гц, AMD FreeSync, интерфейсы HDMI+D-Sub (VGA)</p><div>Цвет корпуса: черный, соотношение сторон: 16:9, плотность пикселей: 92ppi</div>',702.30),(14,10,'Стиральная машина LG','<H1>Модель F2V5HS0W</H1><p>отдельностоящая, автоматическая стиральная машина, с паром, загрузка до 7 кг, отжим 1200 об/мин, глубина 45 см</p><div>\"Энергопотребление: А+++, количество программ: 14</div>',1999.00),(15,10,'Смартфон Huawei Mate','<H1>Модель 50 Pro DCO-LX9 8GB/256GB</H1><p>Android, экран 6.74\" OLED (1212x2616) 120 Гц, Qualcomm Snapdragon 8+ Gen1, ОЗУ 8 ГБ, флэш-память 256 ГБ</p><div>Камера: 50 Мп, влагозащита: IP68</div>',3499.00),(16,6,'Смартфон Samsung Galaxy','<H1>Модель A12 4GB/64GB</H1><p>Android, экран 6.5\" TFT (720x1600) 60 Гц, Mediatek MT6765 Helio P35, ОЗУ 4 ГБ, флэш-память 64 ГБ</p><div>Камера: 48 Мп, аккумулятор: 5000 mA/h</div>',3499.00),(17,6,'Стиральная машина ATLANT','<H1>Модель СМА 60У1213-01</H1><p>отдельностоящая, автоматическая стиральная машина, загрузка до 6 кг, отжим 1200 об/мин, глубина 40.6 см</p><div>Энергопотребление: А+++, программы: 16</div>',1026.84),(18,6,'Клавиатура SVEN','<H1>Модель KB-G7400</H1><p>игровая для ПК, мембранная, пластик, интерфейс подключения - USB, подсветка, цвет черный</p><div>Переключение: мембранное, форма клавиш: классическая</div>',31.50),(19,5,'Клавиатура DeepCool','<H1>Модель KG722</H1><p>игровая для ПК, механическая, Gateron Red, ход линейный/без клика, пластик, интерфейс подключения - USB, подсветка, цвет черный</p><div>Переключение: механическое, форма клавиш: классическая</div>',200.37),(20,5,'Смартфон Xiaomi','<H1>Модель Redmi 10 2022</H1><p>Android, экран 6.5\" IPS (1080x2400) 90 Гц, Mediatek Helio G88, ОЗУ 6 ГБ, флэш-память 128 ГБ</p><div>Камера: 50 Мп, аккумулятор: 5000 мАч</div>',587.00),(21,7,'Смартфон Xiaomi','<H1>Модель Redmi Note 10 Pro</H1><p>Android, экран 6.67\" AMOLED (1080x2400) 120 Гц, Qualcomm Snapdragon 732G, ОЗУ 8 ГБ, флэш-память 128 ГБ</p><div>Камера: 108 Мп, аккумулятор: 5020 мАч</div>',710.00),(22,8,'Смартфон Samsung','<H1>Модель Galaxy S22 5G SM-S901B</H1><p>Android, экран 6.1\" AMOLED (1080x2340) 120 Гц, Exynos 2200, ОЗУ 8 ГБ, флэш-память 128 ГБ</p><div>Камера: 50 Мп, аккумулятор: 3700 мАч</div>',2045.00),(23,9,'Смартфон ','<H1>Модель Galaxy S21 FE 5G SM-G990B</H1><p>Android, экран 6.4\" AMOLED (1080x2340) 120 Гц, Qualcomm Snapdragon 888, ОЗУ 6 ГБ, флэш-память 128 ГБ</p><div>Камера: 12 Мп, аккумулятор: 4500 мАч</div>',1620.00),(24,9,'Стиральная машина','<H1>Модель Indesit IWSB 51051</H1><p>отдельностоящая, автоматическая стиральная машина, загрузка до 5 кг, отжим 1000 об/мин, глубина 40 см</p><div>Энергопотребление: А+, программы: 16</div>',768.90),(25,8,'Стиральная машина','<H1>Модель Samsung WW65A4S20EE</H1><p>отдельностоящая, автоматическая стиральная машина, с паром, загрузка до 6.5 кг, отжим 1200 об/мин, глубина 45 см</p><div>Энергопотребление: А+++, программы: 12</div>',1510.31),(26,7,'Стиральная машина','<H1>Модель Candy EGVS34 116TC3</H1><p>отдельностоящая, автоматическая стиральная машина, с паром, загрузка до 6 кг, отжим 1100 об/мин, глубина 34 см</p><div>Энергопотребление: А+++, программы: 15</div>',1049.00),(27,7,'Игровой монитор','<H1>Модель Samsung C27RG50FQI</H1><p>27\", 16:9, 1920x1080, VA, изогнутый (1500R), 240 Гц, совместимый с NVIDIA G-Sync, интерфейсы HDMI+DisplayPort</p><div>Соотношение сторон: 16:9, плотность пикселей: 81 ppi</div>',955.90),(28,8,'Игровой монитор','<H1>Модель AOC 24G2U/BK</H1><p>23.8\", 16:9, 1920x1080, IPS, 144 Гц, AMD FreeSync Premium, динамики, интерфейсы HDMI+DisplayPort</p><div>Соотношение сторон: 16:9, плотность пикселей: 92 ppi, портретный режим</div>',991.07),(29,9,'Игровой монитор','<H1>Модель Dell S2522HG</H1><p>24.5\", 16:9, 1920x1080, IPS, 240 Гц, AMD FreeSync Premium/совместимый с NVIDIA G-Sync, интерфейсы HDMI+DisplayPort</p><div>Соотношение сторон: 16:9, плотность пикселей: 89 ppi, портретный режим</div>',1249.00),(30,9,'Игровой ноутбук','<H1>Модель ASUS TUF Gaming F15 FX506HCB-HN144</H1><p>15.6\" 1920 x 1080 IPS, 144 Гц, несенсорный, Intel Core i5 11400H 2700 МГц, 8 ГБ DDR4</p><div>объем оперативки: 16Gb, операционная система: без ОС</div>',2969.00),(31,8,'Ноутбук','<H1>Модель Apple Macbook Air 13\" M1 2020 MGN93</H1><p>13.3\" 2560 x 1600 IPS, 60 Гц, несенсорный, Apple M1 3200 МГц, 8 ГБ, SSD 256 ГБ</p><div>объем оперативки: 8Gb, операционная система: macOS</div>',2999.00),(32,7,'Ноутбук','<H1>Модель Lenovo IdeaPad 5 Pro 14ACN6 82L7000PRK<H1><p>14.0\" 2240 x 1400 IPS, 60 Гц, несенсорный, AMD Ryzen 5 5600U 2300 МГц, 16 ГБ DDR4, SSD 512 ГБ</p><div>объем оперативки: 16Gb, операционная система: без ОС</div>',3060.00),(33,7,'Клавиатура','<H1>Модель Genesis Rhod 350 RGB<H1><p>игровая для ПК, мембранная, пластик, интерфейс подключения - USB, подсветка, влагозащита</p><div>Переключение: мембранное, форма клавиш: классическая</div>',80.19),(34,8,'Клавиатура','<H1>Модель A4Tech Bloody B828N<H1><p>игровая для ПК, механическая, металлическая верхняя панель, интерфейс подключения - USB, подсветка, влагозащита</p><div>Переключение: механическое, форма клавиш: классическая</div>',151.72),(35,9,'Клавиатура','<H1>Модель Logitech K580 Slim<H1><p>компактная для ПК, мембранная, пластик, интерфейс подключения - радио/Bluetooth, цвет черный</p><div>Переключение: мембранное, форма клавиш: островная</div>',159.00);
+/*!40000 ALTER TABLE `products` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `stores`
+--
+
+DROP TABLE IF EXISTS `stores`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `stores` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `url` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `open_time` time NOT NULL,
+  `close_time` time NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `url` (`url`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `stores`
+--
+
+LOCK TABLES `stores` WRITE;
+/*!40000 ALTER TABLE `stores` DISABLE KEYS */;
+INSERT INTO `stores` VALUES (5,'ТехноМир','https://technoworld.by','08:00:00','23:00:00'),(6,'Online','https://online.by','09:00:00','21:00:00'),(7,'TTN','https://ttn.by','08:00:00','23:00:00'),(8,'5 элемент','https://5element.by','09:00:00','21:00:00'),(9,'21vek','https://21vek.by','11:00:00','19:30:00'),(10,'Электросила','https://sila.by','10:00:00','17:30:00');
+/*!40000 ALTER TABLE `stores` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2022-12-22  0:37:21
