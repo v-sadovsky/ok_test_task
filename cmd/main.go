@@ -21,7 +21,6 @@ type application struct {
 	stores   interface {
 		Get(string) (map[int]*models.Shop, error)
 	}
-	pool int
 }
 
 func main() {
